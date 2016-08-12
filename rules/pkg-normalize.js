@@ -22,6 +22,10 @@ const isGitRepository = repository => {
 		return false;
 	}
 
+	if (typeof repository !== 'string' && !Array.isArray(repository) && Object.prototype.hasOwnProperty.call(repository, 'url')) {
+		repository = repository.url;
+	}
+
 	return repository.includes('github.com') || /^\w+\/\w+$/.test(repository);
 };
 

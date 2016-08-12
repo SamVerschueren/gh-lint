@@ -42,6 +42,6 @@ test('unknown plugin', t => {
 	t.throws(m('.', {cwd: '../', plugins: ['foo'], rules: {foo: 'error'}}), 'Could not find module for plugin \'foo\'.');
 });
 
-test('cli', async t => {
-	t.throws(execa('../cli.js', ['fixtures/package/no-files', '--no-inherit']), /[ ]*?✖[ ]*?Missing files property in package.json.[ ]*pkg-files/);
+test('cli', t => {
+	t.throws(execa('../cli.js', ['fixtures/package/no-files', '--no-inherit']), /[ ]*?✖|×[ ]*?Missing files property in package.json.[ ]*pkg-files/);
 });
