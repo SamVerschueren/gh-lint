@@ -12,7 +12,7 @@ test('no error', async t => {
 });
 
 test('file is not executable', async t => {
-	const fixtures = process.platform === 'win32' ? [] : [
+	const expectedResult = process.platform === 'win32' ? [] : [
 		{
 			ruleId: 'cli',
 			severity: 'error',
@@ -21,7 +21,7 @@ test('file is not executable', async t => {
 		}
 	];
 
-	t.deepEqual(await m('not-executable', opts), fixtures);
+	t.deepEqual(await m('not-executable', opts), expectedResult);
 });
 
 test('file not exists', async t => {
