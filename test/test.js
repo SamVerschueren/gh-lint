@@ -1,6 +1,7 @@
 /* eslint-disable object-property-newline */
 import test from 'ava';
 import execa from 'execa';
+import figures from 'figures';
 import {lint as m} from '../';
 
 test('project does not exist', async t => {
@@ -43,5 +44,5 @@ test('unknown plugin', t => {
 });
 
 test('cli', t => {
-	t.throws(execa('../cli.js', ['fixtures/package/no-files', '--no-inherit']), /[ ]*?✖|×[ ]*?Missing files property in package.json.[ ]*pkg-files/);
+	t.throws(execa('../cli.js', ['fixtures/package/no-files', '--no-inherit']), new RegExp(`[ ]*?${figures.cross}[ ]*?Missing files property in package.json.[ ]*pkg-files`));
 });
