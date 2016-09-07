@@ -1,0 +1,9 @@
+{
+  "name": "package",
+  "repository": [],
+  "clinton": {
+    "rules": {
+      "pkg-normalize": "error"
+    }
+  }
+}
