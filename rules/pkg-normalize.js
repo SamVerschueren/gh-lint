@@ -22,7 +22,11 @@ const isGitRepository = repository => {
 		return false;
 	}
 
-	if (typeof repository !== 'string' && !Array.isArray(repository) && Object.prototype.hasOwnProperty.call(repository, 'url')) {
+	if (typeof repository !== 'string' && typeof repository !== 'object') {
+		return false;
+	}
+
+	if (typeof repository === 'object' && repository.url) {
 		repository = repository.url;
 	}
 
