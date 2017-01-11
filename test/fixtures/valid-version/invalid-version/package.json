@@ -1,4 +1,9 @@
 {
   "name": "package",
-  "version": "foo"
+  "version": "foo",
+  "clinton": {
+    "rules": {
+      "valid-version": "error"
+    }
+  }
 }
