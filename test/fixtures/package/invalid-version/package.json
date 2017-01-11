@@ -1,9 +1,0 @@
-{
-  "name": "package",
-  "version": "foo",
-  "clinton": {
-    "rules": {
-      "valid-version": "error"
-    }
-  }
-}
