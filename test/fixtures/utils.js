@@ -1,11 +1,5 @@
 'use strict';
-exports.assign = opts => {
-	return function () {
-		return Object.assign.apply(Object, [{}, opts].concat(Array.from(arguments)));
-	};
-};
-
-exports.fix = validations => {
+const fix = validations => {
 	for (const validation of validations) {
 		if (typeof validation.fix !== 'function') {
 			throw new TypeError(`Expected \`.fix\` to be a \`function\`, got \`${typeof validation.fix}\``);
@@ -16,3 +10,11 @@ exports.fix = validations => {
 
 	return validations;
 };
+
+exports.assign = opts => {
+	return function () {
+		return Object.assign.apply(Object, [{}, opts].concat(Array.from(arguments)));
+	};
+};
+
+exports.fix = fix;
