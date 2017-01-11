@@ -1,7 +1,6 @@
 'use strict';
 const lint = require('../../').lint;
 const Fixer = require('../../lib/fixer');
-const fix = require('./utils').fix;
 
 const testFix = (t, validation, output) => {
 	const fixer = new Fixer();
@@ -9,6 +8,18 @@ const testFix = (t, validation, output) => {
 	return fixer.fix(validation).then(result => {
 		t.deepEqual(result, output);
 	});
+};
+
+const clean = validations => {
+	for (const validation of validations) {
+		if (typeof validation.fix !== 'function') {
+			throw new TypeError(`Expected \`.fix\` to be a \`function\`, got \`${typeof validation.fix}\``);
+		}
+
+		delete validation.fix;
+	}
+
+	return validations;
 };
 
 module.exports = options => {
@@ -29,7 +40,7 @@ module.exports = options => {
 			})
 			.then(validations => {
 				if (expectedFixes) {
-					validations = fix(validations);
+					validations = clean(validations);
 				}
 
 				if (expectedValidations) {
