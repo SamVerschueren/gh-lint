@@ -106,6 +106,10 @@ test('untested versions', async t => {
 	);
 });
 
+test('aliases', async t => {
+	await ruleTester(t, 'aliases', []);
+});
+
 test('deprecated versions', async t => {
 	const file = path.resolve(opts.cwd, 'deprecated/.travis.yml');
 
