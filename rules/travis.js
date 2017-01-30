@@ -2,7 +2,7 @@
 const semver = require('semver');
 
 const SUPPORTED_VERSIONS = ['0.10', '0.12', '4', '6'];
-const DEPRECATED_VERSIONS = ['iojs', 'stable'];
+const DEPRECATED_VERSIONS = ['iojs', 'stable', 'unstable'];
 
 /**
  * Normalize a semantic version to be a valid version. 0.10 -> 0.10.0

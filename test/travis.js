@@ -118,6 +118,12 @@ test('deprecated versions', async t => {
 				severity: 'error'
 			},
 			{
+				message: 'Version `unstable` is deprecated.',
+				file,
+				ruleId: 'travis',
+				severity: 'error'
+			},
+			{
 				message: 'Version `iojs` is deprecated.',
 				file,
 				ruleId: 'travis',
